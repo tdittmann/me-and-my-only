@@ -1,0 +1,38 @@
+<ion-content *ngIf="relationship" [ngStyle]="{'background-image' : getBackgroundImage(relationship?.image)}">
+
+    <!-- Settings button -->
+    <div class="settings">
+        <ion-icon icon="settings-outline" routerLink="/settings"></ion-icon>
+    </div>
+
+    <!-- Quote of the day -->
+    <ng-template [ngIf]="quoteOfTheDay">
+        <app-quote [quote]="quoteOfTheDay"></app-quote>
+    </ng-template>
+
+    <!-- Details -->
+    <div class="details ion-text-center">
+        <ion-grid>
+            <ion-row class="name-row">
+                <ion-col>
+                    <div class="name ion-text-right">{{ relationship?.name1 }}</div>
+                </ion-col>
+                <ion-col>
+                    <ion-icon name="heart" class="heart" [ngClass]="heartCssClass" (click)="refresh()"></ion-icon>
+                </ion-col>
+                <ion-col>
+                    <div class="name ion-text-left">{{ relationship?.name2 }}</div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>since {{relationship?.anniversary | date : 'medium'}}</ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <div class="countdown">
+            <app-countdown [dateInMillis]="relationship?.anniversary"></app-countdown>
+        </div>
+
+    </div>
+
+</ion-content>

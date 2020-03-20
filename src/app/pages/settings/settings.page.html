@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Settings
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="relationship">
+
+    <!-- TODO tdit0703: Fix Image Picker -->
+    <!--    <app-image-picker [base64image]="relationship.image"></app-image-picker>-->
+
+    <ion-list>
+        <ion-item>
+            <ion-label position="floating">Your code</ion-label>
+            <ion-input disabled type="text" [(ngModel)]="relationship.code"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Name 1</ion-label>
+            <ion-input type="text" [(ngModel)]="relationship.name1"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Name 2</ion-label>
+            <ion-input type="text" [(ngModel)]="relationship.name2"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Your date</ion-label>
+            <ion-datetime displayFormat="MMM DD, YYYY HH:mm:ss" pickerFormat="DD MMMM YYYY HH mm ss"
+                          [(ngModel)]="anniversaryDateTime"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Quote of the day by
+                <span style="z-index:50;font-size:0.9em;">
+          <img src="https://theysaidso.com/branding/theysaidso.png" height="20" width="20" alt="theysaidso.com"/>
+          <a href="https://theysaidso.com" title="Powered by quotes from theysaidso.com"
+             style="color: #9fcc25; margin-left: 4px; vertical-align: middle;">theysaidso.com</a></span>
+            </ion-label>
+            <ion-checkbox [(ngModel)]="showQuoteOfTheDay"></ion-checkbox>
+        </ion-item>
+    </ion-list>
+
+    <ion-button expand="block" color="success" (click)="save()">Save</ion-button>
+    <ion-button expand="block" color="light" (click)="cancel()">Cancel</ion-button>
+    <ion-button expand="block" color="danger" (click)="resetApp()">Reset app</ion-button>
+
+</ion-content>

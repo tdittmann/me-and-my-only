@@ -1,0 +1,49 @@
+ion-content {
+  --background: transparent;
+  background-position: center;
+  background-size: cover;
+  background-image: url("/assets/backgrounds/background05.jpg");
+}
+
+.settings {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5em;
+  color: #fff;
+}
+
+.details {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  padding-bottom: 16px;
+}
+
+.name-row {
+  height: 100px;
+  align-items: center;
+}
+
+.heart {
+  color: #c30000;
+  transition-duration: 2s;
+}
+
+.bigHeart {
+  font-size: 80px;
+}
+
+.smallHeart {
+  font-size: 30px;
+}
+
+.name {
+  font-size: 1.5em;
+  font-weight: bolder;
+}
+
+.countdown {
+  margin-top: 25px
+}

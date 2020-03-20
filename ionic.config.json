@@ -1,0 +1,7 @@
+{
+  "name": "me-and-my-only",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
