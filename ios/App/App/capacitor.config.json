@@ -1,0 +1,8 @@
+{
+  "appId": "de.timodittmann.mamo",
+  "appName": "Me And My Only",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}
