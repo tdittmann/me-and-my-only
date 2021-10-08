@@ -1,4 +1,4 @@
-import {LOCALE_ID, NgModule} from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouteReuseStrategy} from '@angular/router';
 
@@ -9,10 +9,13 @@ import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
-import {IonicStorageModule} from '@ionic/storage';
+import {IonicStorageModule} from '@ionic/storage-angular';
 import {LocalStorageService} from './services/local-storage.service';
 import {ToastService} from './services/toast.service';
-import {registerLocaleData} from '@angular/common';
+
+export function initStorage(localStorageService: LocalStorageService): () => Promise<void | any> {
+    return (): Promise<void | any> => localStorageService.initStorage();
+}
 
 @NgModule({
     declarations: [AppComponent],
@@ -30,6 +33,7 @@ import {registerLocaleData} from '@angular/common';
         LocalStorageService,
         ToastService,
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
+        {provide: APP_INITIALIZER, useFactory: initStorage, deps: [LocalStorageService], multi: true}
     ],
     bootstrap: [AppComponent]
 })

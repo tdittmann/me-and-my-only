@@ -73,8 +73,8 @@ export class RelationshipPage implements OnInit {
     }
 
     private loadRelationshipFromDb() {
-        this.relationshipService.loadRelationship(this.relationship.code).subscribe(
-            (relationship) => {
+        this.relationshipService.loadRelationship(this.relationship.code).subscribe({
+            next: (relationship) => {
                 if (!relationship) {
                     return;
                 }
@@ -83,12 +83,11 @@ export class RelationshipPage implements OnInit {
                     this.relationship = relationship;
                     this.localStorageService.setRelationship(relationship);
                 }
-
             },
-            (error) => {
+            error: (error) => {
                 console.error(error);
             }
-        );
+        });
     }
 
     private loadQuoteOfTheDay() {
@@ -96,15 +95,16 @@ export class RelationshipPage implements OnInit {
             (showQuote) => {
                 if (showQuote) {
 
-                    this.quoteService.loadQuote().subscribe(
-                        (quote) => {
+                    this.quoteService.loadQuote().subscribe({
+                        next: (quote) => {
+                            console.log(quote);
                             this.quoteOfTheDay = quote;
                         },
-                        (error) => {
+                        error: (error) => {
                             this.toastService.showMessage('Can\'t load quote. Check your network connection.');
                             console.error(error);
                         }
-                    );
+                    });
 
                 }
             }
