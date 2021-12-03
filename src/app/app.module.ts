@@ -14,28 +14,28 @@ import {LocalStorageService} from './services/local-storage.service';
 import {ToastService} from './services/toast.service';
 
 export function initStorage(localStorageService: LocalStorageService): () => Promise<void | any> {
-    return (): Promise<void | any> => localStorageService.initStorage();
+  return (): Promise<void | any> => localStorageService.initStorage();
 }
 
 @NgModule({
-    declarations: [AppComponent],
-    entryComponents: [],
-    imports: [
-        BrowserModule,
-        IonicModule.forRoot(),
-        AppRoutingModule,
-        HttpClientModule,
-        IonicStorageModule.forRoot(),
-    ],
-    providers: [
-        StatusBar,
-        SplashScreen,
-        LocalStorageService,
-        ToastService,
-        {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
-        {provide: APP_INITIALIZER, useFactory: initStorage, deps: [LocalStorageService], multi: true}
-    ],
-    bootstrap: [AppComponent]
+  declarations: [AppComponent],
+  entryComponents: [],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule,
+    IonicStorageModule.forRoot(),
+  ],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    LocalStorageService,
+    ToastService,
+    {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
+    {provide: APP_INITIALIZER, useFactory: initStorage, deps: [LocalStorageService], multi: true}
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 

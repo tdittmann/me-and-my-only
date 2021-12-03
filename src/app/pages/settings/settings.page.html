@@ -12,8 +12,9 @@
 
 <ion-content *ngIf="relationship">
 
-  <!-- TODO tdit0703: Fix Image Picker -->
-  <!--    <app-image-picker [base64image]="relationship.image"></app-image-picker>-->
+  <app-image-picker [base64image]="relationship.image"
+                    (updateImage)="updateImage($event)">
+  </app-image-picker>
 
   <ion-list>
     <ion-item>

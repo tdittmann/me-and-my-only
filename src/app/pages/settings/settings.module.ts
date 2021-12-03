@@ -7,25 +7,21 @@ import {RouterModule} from '@angular/router';
 import {SettingsPage} from './settings.page';
 import {RelationshipService} from '../../services/relationship.service';
 import {ImagePickerComponent} from './image-picker/image-picker.component';
-import {Camera} from '@ionic-native/camera/ngx';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        IonicModule,
-        RouterModule.forChild([
-            {
-                path: '',
-                component: SettingsPage
-            }
-        ])
-    ],
-    providers: [
-        RelationshipService,
-        Camera
-    ],
-    declarations: [SettingsPage, ImagePickerComponent]
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: SettingsPage
+      }
+    ])
+  ],
+  providers: [RelationshipService],
+  declarations: [SettingsPage, ImagePickerComponent]
 })
 export class SettingsPageModule {
 }
