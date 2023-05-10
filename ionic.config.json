@@ -1,7 +1,8 @@
 {
   "name": "me-and-my-only",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular"
 }

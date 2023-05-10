@@ -5,6 +5,10 @@ ion-content {
   background-image: url("/assets/backgrounds/background05.jpg");
 }
 
+ion-card-content {
+  padding: 0 !important;
+}
+
 .details {
   position: absolute;
   bottom: 0;

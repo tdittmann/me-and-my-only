@@ -3,7 +3,7 @@
     <ion-label>{{description}}</ion-label>
     <ion-label slot="end">{{date | date : 'dd. MMMM yyyy'}}</ion-label>
   </ion-item>
-  <div class="ion-padding" slot="content">
+  <div slot="content">
     <app-countdown [dateInMillis]="date"></app-countdown>
   </div>
 </ion-accordion>

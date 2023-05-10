@@ -1,17 +1,22 @@
 <div class="container" *ngIf="dateInMillis > 0">
   <ion-grid class="grid ion-text-center">
     <ion-row>
-      <ion-col class="val">{{days}}</ion-col>
-      <ion-col class="val">{{hours}}</ion-col>
-      <ion-col class="val">{{minutes}}</ion-col>
-      <ion-col class="val">{{seconds}}</ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col class="type-time">TAGEN</ion-col>
-      <ion-col class="type-time">STUNDEN</ion-col>
-      <ion-col class="type-time">MINUTEN</ion-col>
-      <ion-col class="type-time">SEKUNDEN</ion-col>
+      <ion-col>
+        <span class="val">{{days}}</span> <br/>
+        TAGEN
+      </ion-col>
+      <ion-col>
+        <span class="val">{{hours}}</span> <br/>
+        STD
+      </ion-col>
+      <ion-col>
+        <span class="val">{{minutes}}</span> <br/>
+        MIN
+      </ion-col>
+      <ion-col>
+        <span class="val">{{seconds}}</span> <br/>
+        SEK
+      </ion-col>
     </ion-row>
   </ion-grid>
 </div>
