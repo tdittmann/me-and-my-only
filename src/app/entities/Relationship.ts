@@ -1,16 +1,14 @@
 export class Relationship {
 
-    code: string;
+  name1: string;
+  name2: string;
 
-    name1: string;
-    name2: string;
+  image: string;
 
-    anniversary: number;
-    image: string;
-    lastUpdate: number;
+  anniversary: number;
+  engaged: number | undefined;
+  married: number | undefined;
 
-    constructor() {
-
-    }
+  children: { name: string, birthday: number }[] = [];
 
 }

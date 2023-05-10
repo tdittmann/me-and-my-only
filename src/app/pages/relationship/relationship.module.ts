@@ -8,24 +8,27 @@ import {QuoteService} from '../../services/quote.service';
 import {QuoteComponent} from './quote/quote.component';
 import {CountdownComponent} from './countdown/countdown.component';
 import {RelationshipService} from '../../services/relationship.service';
+import {
+  StageOfLifeAccordionComponent
+} from "./stage-of-life-accordion/stage-of-life-accordion.component";
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        IonicModule,
-        RouterModule.forChild([
-            {
-                path: '',
-                component: RelationshipPage
-            }
-        ]),
-    ],
-    providers: [
-        QuoteService,
-        RelationshipService,
-    ],
-    declarations: [RelationshipPage, QuoteComponent, CountdownComponent]
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: RelationshipPage
+      }
+    ]),
+  ],
+  providers: [
+    QuoteService,
+    RelationshipService,
+  ],
+  declarations: [RelationshipPage, QuoteComponent, CountdownComponent, StageOfLifeAccordionComponent]
 })
 export class RelationshipPageModule {
 }

@@ -5,20 +5,10 @@ ion-content {
   background-image: url("/assets/backgrounds/background05.jpg");
 }
 
-.settings {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 1.5em;
-  color: #fff;
-}
-
 .details {
   position: absolute;
   bottom: 0;
   width: 100%;
-  color: white;
-  padding-bottom: 16px;
 }
 
 .name-row {
@@ -42,8 +32,4 @@ ion-content {
 .name {
   font-size: 1.5em;
   font-weight: bolder;
-}
-
-.countdown {
-  margin-top: 25px
 }

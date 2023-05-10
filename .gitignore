@@ -36,3 +36,4 @@ Thumbs.db
 UserInterfaceState.xcuserstate
 /android/app/google-services.json
 /src/environments/credentials.ts
+/src/assets/data.json

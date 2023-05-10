@@ -1,11 +1,6 @@
 <ion-content *ngIf="relationship"
              [ngStyle]="{'background-image' : getBackgroundImage(relationship?.image)}">
 
-  <!-- Settings button -->
-  <div class="settings">
-    <ion-icon icon="settings-outline" routerLink="/settings"></ion-icon>
-  </div>
-
   <!-- Quote of the day -->
   <ng-template [ngIf]="quoteOfTheDay">
     <app-quote [quote]="quoteOfTheDay"></app-quote>
@@ -13,27 +8,49 @@
 
   <!-- Details -->
   <div class="details ion-text-center">
-    <ion-grid>
-      <ion-row class="name-row">
-        <ion-col>
-          <div class="name ion-text-right">{{ relationship?.name1 }}</div>
-        </ion-col>
-        <ion-col>
-          <ion-icon name="heart" class="heart" [ngClass]="heartCssClass"
-                    (click)="refresh()"></ion-icon>
-        </ion-col>
-        <ion-col>
-          <div class="name ion-text-left">{{ relationship?.name2 }}</div>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>since {{relationship?.anniversary | date : 'dd. MMMM yyyy'}}</ion-col>
-      </ion-row>
-    </ion-grid>
 
-    <div class="countdown">
-      <app-countdown [dateInMillis]="relationship?.anniversary"></app-countdown>
-    </div>
+    <ion-card>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row class="name-row">
+            <ion-col>
+              <div class="name ion-text-right">{{ relationship?.name1 }}</div>
+            </ion-col>
+            <ion-col>
+              <ion-icon name="heart" class="heart" [ngClass]="heartCssClass"></ion-icon>
+            </ion-col>
+            <ion-col>
+              <div class="name ion-text-left">{{ relationship?.name2 }}</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-accordion-group>
+
+          <app-stage-of-life-accordion *ngIf="relationship?.anniversary"
+                                       description="💑 Jahrestag"
+                                       [date]="relationship?.anniversary">
+          </app-stage-of-life-accordion>
+
+          <app-stage-of-life-accordion *ngIf="relationship?.engaged"
+                                       description="💍 Verlobung"
+                                       [date]="relationship?.engaged">
+          </app-stage-of-life-accordion>
+
+          <app-stage-of-life-accordion *ngIf="relationship?.married"
+                                       description="👰‍♀️🤵‍♂️ Hochzeit"
+                                       [date]="relationship?.married">
+          </app-stage-of-life-accordion>
+
+          <app-stage-of-life-accordion
+              *ngFor="let child of relationship?.children"
+              [description]="'🧒 ' + child.name"
+              [date]="child.birthday">
+          </app-stage-of-life-accordion>
+
+        </ion-accordion-group>
+      </ion-card-content>
+    </ion-card>
 
   </div>
 

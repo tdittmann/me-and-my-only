@@ -1,4 +1,4 @@
-import {APP_INITIALIZER, NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouteReuseStrategy} from '@angular/router';
 
@@ -10,16 +10,9 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {IonicStorageModule} from '@ionic/storage-angular';
-import {LocalStorageService} from './services/local-storage.service';
-import {ToastService} from './services/toast.service';
-
-export function initStorage(localStorageService: LocalStorageService): () => Promise<void | any> {
-  return (): Promise<void | any> => localStorageService.initStorage();
-}
 
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -30,10 +23,7 @@ export function initStorage(localStorageService: LocalStorageService): () => Pro
   providers: [
     StatusBar,
     SplashScreen,
-    LocalStorageService,
-    ToastService,
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
-    {provide: APP_INITIALIZER, useFactory: initStorage, deps: [LocalStorageService], multi: true}
   ],
   bootstrap: [AppComponent]
 })
