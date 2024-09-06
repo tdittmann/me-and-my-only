@@ -9,6 +9,6 @@ export class Relationship {
   engaged: number | undefined;
   married: number | undefined;
 
-  children: { name: string, birthday: number }[] = [];
+  children: { name: string, birthday: number, gender: 'male' | 'female' }[] = [];
 
 }

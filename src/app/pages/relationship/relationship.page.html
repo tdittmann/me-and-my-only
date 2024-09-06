@@ -44,7 +44,7 @@
 
           <app-stage-of-life-accordion
               *ngFor="let child of relationship?.children"
-              [description]="'🧒 ' + child.name"
+              [description]="getChildEmoji(child.gender) + '' + child.name"
               [date]="child.birthday">
           </app-stage-of-life-accordion>
 

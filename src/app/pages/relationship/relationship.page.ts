@@ -44,6 +44,14 @@ export class RelationshipPage implements OnInit {
     window.location.reload();
   }
 
+  public getChildEmoji(sex: 'male' | 'female') {
+    switch (sex) {
+      case 'male': return '👦';
+      case 'female': return '👧';
+      default: return '🧒';
+    }
+  }
+
   private loadRelationship() {
     this.relationshipService.loadRelationship().subscribe({
       next: (relationship) => {
