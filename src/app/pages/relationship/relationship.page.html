@@ -1,12 +1,6 @@
 <ion-content *ngIf="relationship"
              [ngStyle]="{'background-image' : getBackgroundImage(relationship?.image)}">
 
-  <!-- Quote of the day -->
-  <ng-template [ngIf]="quoteOfTheDay">
-    <app-quote [quote]="quoteOfTheDay"></app-quote>
-  </ng-template>
-
-  <!-- Details -->
   <div class="details ion-text-center">
 
     <ion-card>
@@ -44,7 +38,7 @@
 
           <app-stage-of-life-accordion
               *ngFor="let child of relationship?.children"
-              [description]="getChildEmoji(child.gender) + '' + child.name"
+              [description]="getChildEmoji(child.gender) + ' ' + child.name"
               [date]="child.birthday">
           </app-stage-of-life-accordion>
 

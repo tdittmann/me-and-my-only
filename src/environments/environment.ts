@@ -4,5 +4,4 @@
 
 export const environment = {
   production: false,
-  quoteUrl: 'http://quotes.rest/qod.json?category=love'
 };
